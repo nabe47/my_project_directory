@@ -4,7 +4,6 @@
 
   {% block body %}
 
-    {% endfor %}
     <div class="container mt-4">
     {% if not ingredients.items is same as ([]) %}
           <h1> Mes ingrédients </h1>
@@ -12,6 +11,8 @@
                   <div class="alert alert-dismissible alert-success">
                       {{ message }}
                   </div>
+              {% endfor %}
+        <a href="{{path('ingredient.new')}}" class="btn btn-primary"> Ajouter des ingrédients </a>
           <div class="count"> Nombre d'ingrédients: 
               {{ ingredients.getTotalItemCount }}
           </div>
@@ -22,6 +23,8 @@
             <th scope="col">Nom de l'ingrédient</th>
             <th scope="col">Prix</th>
             <th scope="col">Date de création</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Suppression</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +34,12 @@
               <td>{{ingredient.name}}</td>
               <td>{{ingredient.price}}</td>
               <td>{{ingredient.createdAt|date('d/m/Y')}}</td>
+              <td>
+              <a href="{{path('ingredient.edit',{id:ingredient.id})}}" class="btn btn-info">Modifier </a>
+              </td>
+              <td>
+              <a href="{{path('ingredient.delete',{id:ingredient.id})}}" class="btn btn-danger" onclick="return confirm('Vous êtes sûre?')">Supprimer </a>
+              </td>
               </tr>
           {% endfor %}
         </tbody>
