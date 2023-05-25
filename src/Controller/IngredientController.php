@@ -59,7 +59,7 @@ class IngredientController extends AbstractController
             $manager->flush();/* Envoyer dans la base de données */
             $this->addFlash( /** Le petit message flash comme dans AUGURE pour dire que c'est enregistrer*/
                 'success',/** Le nom du message pour être récupérer dans le twig */
-                'Votre ingrédient a été modifié avec succès' /**Le contenu du message */
+                'Votre ingrédient a été créé avec succès' /**Le contenu du message */
             );
             return $this->redirectToRoute('ingredient.index'); /**Atteindre la vue qui à pour nom ingredient.index  ici c'est l'affichage des données dans la table*/
             #dd($ingredient); /* Pour afficher les données contenu dans $ingredient, méthode de vérification avant de flush dans la base*/
@@ -104,7 +104,7 @@ class IngredientController extends AbstractController
             $manager->flush();/* Envoyer dans la base de données */
             $this->addFlash( /** Le petit message flash comme dans AUGURE pour dire que c'est enregistrer*/
                 'success',/** Le nom du message pour être récupérer dans le twig */
-                'Votre ingrédient a été créé avec succès' /**Le contenu du message */
+                'Votre ingrédient a été modifié avec succès' /**Le contenu du message */
             );
             return $this->redirectToRoute('ingredient.index'); /**Atteindre la vue qui à pour nom ingredient.index  ici c'est l'affichage des données dans la table*/
             }
