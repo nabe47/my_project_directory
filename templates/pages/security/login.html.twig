@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SYMRECIPE - CONNEXION{% endblock %}
+
+{% block body %} 
+<!-- Ajouter le paramètre name ="_username" et name ="_password" pour que le login va comprendre su'il doit aller chercher ici pour le username-->
+<div class ="container">
+    {% if error %}
+        <div class="alert alert-danger mt-4">
+           {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>        
+    {% endif %}
+    <h1 class="mt-4"> Formulaire de connexion </h1>
+    <form action ="{{path('security.login')}}" method="POST">
+    <div class="form-group">
+      <label for="username" class="form-label mt-4">Adresse e-mail</label>
+      <input type="email" class="form-control" 
+      id="username" name ="_username" 
+      aria-describedby="emailHelp" placeholder="exemple@symrecipe.fr"
+      value="{{last_username}}">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="password" class="form-label mt-4">Mot de passe:</label>
+      <input type="password" class="form-control" 
+      id="password" name="_password" placeholder="********">
+    </div>
+    <button type ="submit" class="btn btn-primary mt-4"> Se connecter</button>
+    </form>
+</div>
+{% endblock %}

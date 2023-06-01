@@ -20,5 +20,12 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    #Début de ce que j'ai ajouter
+    App\EntityListener\:
+        resource: "../src/EntityListener/" #L'emplacement du fichier contenant les instructions à executer
+        tags: ["doctrine.orm.entity_listener"] #L'évènement à écouter (persist)
+
+    #Fin de ce que j'ai ajouter
+    
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
